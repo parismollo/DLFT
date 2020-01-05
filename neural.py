@@ -13,6 +13,13 @@ dataset = keras.datasets.fashion_mnist
 print(f'Test image shape: {train_img.shape}')
 print(f'Train image shape: {test_img.shape}')
 
-# ploting image at position 0 from training dataset
-plt.imshow(train_img[0])
+classification_labels = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker',
+'Bag', 'Ankle boot']
+
+# ploting images from the dataset
+plt.figure(figsize=(10,10))
+for img in range(10):
+    plt.subplot(2, 5, img+1)
+    plt.imshow(train_img[img],cmap='gray')
+    plt.title(classification_labels[train_label[img]])
 plt.show()
