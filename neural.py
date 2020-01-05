@@ -1,5 +1,6 @@
 import tensorflow
 from tensorflow import keras
+from tensorflow.keras.models import load_model
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -36,17 +37,47 @@ train_imgs = train_imgs/255.0
 model = keras.Sequential([keras.layers.Flatten(input_shape=(28,28)),
         keras.layers.Dense(256, activation=tensorflow.nn.relu),
         keras.layers.Dense(128, activation=tensorflow.nn.relu),
+        keras.layers.Dropout(0.2),
         # keras.layers.Dense(64, activation=tensorflow.nn.relu),
         keras.layers.Dense(10, activation=tensorflow.nn.softmax)])
 
-model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
-model.fit(train_imgs, train_labels, epochs=5, validation_split=0.2)
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+history = model.fit(train_imgs, train_labels, epochs=5, validation_split=0.2)
+
+# saving trained model
+model.save('model_epochs5_nodes4.h5')
+saved_model = load_model('model_epochs5_nodes4.h5')
+
+# ploting accuracy per epochs
+print(history.history)
+plt.plot(history.history['accuracy'])
+plt.plot(history.history['val_accuracy'])
+plt.title('Accuracy per epochs')
+plt.xlabel('epochs')
+plt.ylabel('Accuracy')
+plt.legend(['training', 'validation'])
+plt.show()
+
+# ploting loss per epochs
+plt.plot(history.history['loss'])
+plt.plot(history.history['val_loss'])
+plt.title('Loss per epochs')
+plt.xlabel('epochs')
+plt.ylabel('Loss')
+plt.legend(['training', 'validation'])
+plt.show()
+
 
 # testing the model
 test =  model.predict(test_imgs)
 print(test[0])
 print('Prediction Result: ',np.argmax(test[0])) #argmax returns the indices of the maximum values along an axis.
+print('Expected Result: ', test_labels[0])
+
+# testing saved model
+test_saved_model = saved_model.predict(test_imgs)
+print('Prediction Result: ',np.argmax(test_saved_model[0])) #argmax returns the indices of the maximum values along an axis.
 print('Expected Result: ', test_labels[0])
 
 test_loss, test_accuracy = model.evaluate(test_imgs, test_labels)
