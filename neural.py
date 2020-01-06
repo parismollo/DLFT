@@ -7,7 +7,7 @@ import numpy as np
 # Start importing the dataset
 dataset = keras.datasets.fashion_mnist
 
-# load the dataset
+# load the dataset, return 4 Numpy arrays
 ((train_imgs, train_labels),(test_imgs, test_labels)) = dataset.load_data()
 
 # exploring data
@@ -32,6 +32,7 @@ plt.show()
 
 # reducing complexity - image normalization
 train_imgs = train_imgs/255.0
+test_imgs = test_imgs/255.0 
 
 # creating the model
 model = keras.Sequential([keras.layers.Flatten(input_shape=(28,28)),
