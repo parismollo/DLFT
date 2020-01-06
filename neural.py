@@ -32,7 +32,7 @@ plt.show()
 
 # reducing complexity - image normalization
 train_imgs = train_imgs/255.0
-test_imgs = test_imgs/255.0 
+test_imgs = test_imgs/255.0
 
 # creating the model
 model = keras.Sequential([keras.layers.Flatten(input_shape=(28,28)),
@@ -47,7 +47,7 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=
 history = model.fit(train_imgs, train_labels, epochs=5, validation_split=0.2)
 
 # saving trained model
-model.save('model_epochs5_nodes4.h5')
+# model.save('model_epochs5_nodes4.h5')
 saved_model = load_model('model_epochs5_nodes4.h5')
 
 # ploting accuracy per epochs
