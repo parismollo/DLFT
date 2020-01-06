@@ -25,6 +25,7 @@ We need to simplify the complexity of the data, to do so we will reduce the rang
 by dividing the Numpy Array by 255.0
 
 5. Tensors
+
 Tensors are data structures used by Neural Networks, they are mathematical objects that generalize scalars, vectors and matrices to higher dimensions.
 Tensors are multiple dimensions arrays.
 
@@ -33,9 +34,11 @@ Tensors are multiple dimensions arrays.
 Neural Networks modeling requires configuring the different layers of the network and then compiling the model.
 
 * keras.Flatten
+
 The first layer will reformat the data, transforming the 2d array (28x28) to a one dimension array of 784 pixels.
 
 * keras.Dense
+
 Densely connected or fully connected neural layers that will ultimately return an array of 10 probability score that will indicate the probability that the current image belong to one of the 10 different classes/labels
 
 * Compiling the Model
@@ -51,8 +54,10 @@ Densely connected or fully connected neural layers that will ultimately return a
 Also known as Transfer Function, help us to determine the output of the network node, maps the resulting values in between 0 to 1.
 
 * Linear Activation Functions
+
 Not useful for complexity or data with various parameters
 * Non-linear
+
 Easier for the model to generalize with variety of data.
 
 For this project the activation function used what the Rectified Linear Unit, any value that is negative becomes 0 and any positive value is equal to a positive value.
@@ -74,4 +79,4 @@ Softmax is used to define the probabilities of the output for each category.
 - https://medium.com/@dibyadas/visualizing-different-normalization-techniques-84ea5cc8c378
 - https://towardsdatascience.com/beginners-ask-how-many-hidden-layers-neurons-to-use-in-artificial-neural-networks-51466afa0d3e
 - https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7
-- https://medium.com/@amarbudhiraja/https-medium-com-amarbudhiraja-learning-less-to-learn-better-dropout-in-deep-machine-learning-74334da4bfc5 
+- https://medium.com/@amarbudhiraja/https-medium-com-amarbudhiraja-learning-less-to-learn-better-dropout-in-deep-machine-learning-74334da4bfc5
