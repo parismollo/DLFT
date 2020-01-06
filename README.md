@@ -39,30 +39,30 @@ The first layer will reformat the data, transforming the 2d array (28x28) to a o
 
 * keras.Dense
 
-Densely connected or fully connected neural layers that will ultimately return an array of 10 probability score that will indicate the probability that the current image belong to one of the 10 different classes/labels
+7. Densely connected or fully connected neural layers that will ultimately return an array of 10 probability score that will indicate the probability that the current image belong to one of the 10 different classes/labels
 
-* Compiling the Model
+8. Compiling the Model
 - Loss: Cross Entropy Loss
 - Metrics
 - Optimizer: adam
 
-* Training the model
-
-
-7. Activation Functions
+8. Activation Functions
 
 Also known as Transfer Function, help us to determine the output of the network node, maps the resulting values in between 0 to 1.
 
 * Linear Activation Functions
 
 Not useful for complexity or data with various parameters
+
 * Non-linear
 
 Easier for the model to generalize with variety of data.
 
 For this project the activation function used what the Rectified Linear Unit, any value that is negative becomes 0 and any positive value is equal to a positive value.
 
-Softmax is used to define the probabilities of the output for each category.
+* Softmax
+
+Used to define the probabilities of the output for each category.
 
 ## Resources that I used to learn about this fun topic:
 - Online Course: Deep Learning part 1, Alura.
