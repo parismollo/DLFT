@@ -42,9 +42,15 @@ model = keras.Sequential([keras.layers.Flatten(input_shape=(28,28)),
         # keras.layers.Dense(64, activation=tensorflow.nn.relu),
         keras.layers.Dense(10, activation=tensorflow.nn.softmax)])
 
+# trying different weights
+# bias_dense_layer = model.layers[1].get_weights()[1]
+# random_weights_dense_layer = np.random.rand(784, 256)
+# model.layers[1].set_weights([random_weights_dense_layer, bias_dense_layer])
+
 
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 history = model.fit(train_imgs, train_labels, epochs=5, validation_split=0.2)
+
 
 # saving trained model
 # model.save('model_epochs5_nodes4.h5')
@@ -84,3 +90,7 @@ print('Expected Result: ', test_labels[0])
 test_loss, test_accuracy = model.evaluate(test_imgs, test_labels)
 print('Test Loss', test_loss)
 print('Test Accuracy', test_accuracy)
+
+# Model summary, weights and bias
+model_summary = model.summary()
+print('Printing the weights and bias: ', model.layers[1].get_weights())
