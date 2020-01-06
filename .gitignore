@@ -43,4 +43,3 @@ local_settings.py
 
 .env
 db.sqlite3
-model_epochs5_nodes4.h5
